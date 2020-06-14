@@ -28,5 +28,19 @@ namespace LogicaNegocio.LogicaLogin
                 throw new ArgumentException("Error. No se puede iniciar sesion");
             }
         }
+
+        public static List<TBL_USUARIO> getAllUser()
+        {
+            try
+            {
+                var users = db.TBL_USUARIO.Where(data => data.USU_STATUS == 'A');
+                return users.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Error usuario no ingresa");
+            }
+        }
     }
 }
